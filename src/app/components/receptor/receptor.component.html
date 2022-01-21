@@ -13,11 +13,17 @@
              <tr *ngFor="let item of storageService.storageMensajes">
                  <td>{{ item.tipocanal }}</td>
                  <td>{{ item.mensaje | titlecase }}</td>
-                 <td *ngIf="item.status == true ">
-                     <input type="text" class="form-control">
+                 <td *ngIf="item.status == true">
+                     <input type="text" class="form-control" [(ngModel)]="resp"
+                        (keyup)="preparandoRespuesta($event)"
+                     >
                  </td>
                  <td>
-                     <button class="btn btn-success" (click)="responder(item)">Responder</button>
+                     <button *ngIf="item.status == false" class="btn btn-success" 
+                     (click)="responder(item)">Responder</button>
+
+                     <button *ngIf="item.status == true" class="btn btn-danger" 
+                     (click)="enviarRespuesta()">Enviar respuesta</button>
                  </td>
              </tr>
          </tbody>

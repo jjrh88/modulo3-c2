@@ -8,6 +8,9 @@ import { StorageService } from 'src/app/service/storage.service';
 })
 export class ReceptorComponent implements OnInit {
 
+  resp : string = ""
+  temporalRespuesta: any
+  itemTmp: any
   constructor(public storageService: StorageService) { }
 
   ngOnInit(): void {
@@ -19,8 +22,18 @@ export class ReceptorComponent implements OnInit {
       this.storageService.storageMensajes[i].status = false
       if(this.storageService.storageMensajes[i].mensaje == item.mensaje){
         this.storageService.storageMensajes[i].status = true
+        this.itemTmp = this.storageService.storageMensajes[i]
       }
     }
   }
 
+  preparandoRespuesta(event: any){
+     this.resp = event.target.value
+  }
+
+  enviarRespuesta(){
+   // this.resp 
+   this.itemTmp.respuesta = this.resp
+   console.log( this.itemTmp )
+  }
 }
