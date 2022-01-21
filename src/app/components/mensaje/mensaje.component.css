@@ -1,0 +1,19 @@
+.text{
+    color:black
+}
+
+.cl1{
+  color: red;
+}
+
+.cl2{
+    color: green;
+}
+
+.size{
+    font-size: 30px;
+}
+
+.mgtop{
+    margin: 40px;
+}

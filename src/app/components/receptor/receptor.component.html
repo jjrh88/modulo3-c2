@@ -1,0 +1,27 @@
+<div class="content">
+    <h2>Receptor</h2>
+    <div class="row" *ngIf="storageService.storageMensajes && storageService.storageMensajes.length > 0 ">
+       <div class="text-center">
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Mensaje</th>
+            </tr>   
+         </thead>
+         <tbody>
+             <tr *ngFor="let item of storageService.storageMensajes">
+                 <td>{{ item.tipocanal }}</td>
+                 <td>{{ item.mensaje | titlecase }}</td>
+                 <td *ngIf="item.status == true ">
+                     <input type="text" class="form-control">
+                 </td>
+                 <td>
+                     <button class="btn btn-success" (click)="responder(item)">Responder</button>
+                 </td>
+             </tr>
+         </tbody>
+        </table>
+       </div>
+    </div>
+</div>
