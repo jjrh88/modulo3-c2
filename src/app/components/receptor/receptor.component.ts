@@ -32,8 +32,12 @@ export class ReceptorComponent implements OnInit {
   }
 
   enviarRespuesta(){
-   // this.resp 
-   this.itemTmp.respuesta = this.resp
-   console.log( this.itemTmp )
+    console.log( this.resp )
+    this.storageService.storageMensajesEmisor.forEach(i => {
+      console.log( i )
+      if(i.name == this.itemTmp.name){
+          i.respuesta =  this.resp
+      }
+    });
   }
 }

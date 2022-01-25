@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class StorageService {
 
   storageMensajes: any[] = []
+  storageMensajesEmisor: any[] = []
 
   constructor() { }
 }

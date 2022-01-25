@@ -27,14 +27,13 @@ export class MensajeComponent {
         name:"valla publicitaria"
       }
     ]
-    listaMensaje : any[] = []
- 
-    constructor(private storageService: StorageService){
-      
+
+    constructor(public storageService: StorageService){
+   
     }
 
     enviar(){
-      this.listaMensaje.push({
+      this.storageService.storageMensajesEmisor.push({
         mensaje: this.mensaje,
         tipocanal: this.tipocanal,
         respuesta:""

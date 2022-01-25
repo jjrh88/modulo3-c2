@@ -7,17 +7,21 @@ import { MensajeComponent } from './components/mensaje/mensaje.component';
 import { EmisorComponent } from './components/emisor/emisor.component';
 import { ReceptorComponent } from './components/receptor/receptor.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MensajeComponent,
     EmisorComponent,
-    ReceptorComponent
+    ReceptorComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
