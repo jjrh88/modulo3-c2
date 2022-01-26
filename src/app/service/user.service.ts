@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ConfigService } from './config.service';
+import { IUser } from '../interface/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,8 @@ export class UserService {
     public configService: ConfigService) {
     }
 
-    listar(){
-     return this.http.get(this.configService.config.urlBackend+"/api/user");
+    listar():Observable<IUser[]>{
+     return this.http.get<IUser[]>(this.configService.config.urlBackend+"/api/user");
     }
 
     crear(data: any){

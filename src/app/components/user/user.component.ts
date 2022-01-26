@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/interface/IUser';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class UserComponent implements OnInit {
 
   user: string = ""
   password : string = ""
-  listadoUsuarios: any
+  listadoUsuarios: any[] = []
   constructor(private userService: UserService) {
 
   }
@@ -20,11 +21,8 @@ export class UserComponent implements OnInit {
   }
 
   listar(){
-    this.userService.listar().subscribe((data:any)=>{
+    this.userService.listar().subscribe((data)=>{
       this.listadoUsuarios = data
-    },
-    error =>{
-      console.error("ha ocurrido un error ")
     })
   }
 
@@ -32,7 +30,8 @@ export class UserComponent implements OnInit {
     this.userService.crear({
       user: this.user,
       password: this.password
-    }).subscribe((data: any) =>{
+    })
+    .subscribe((data: any) =>{
        if(data.status){
          this.limpiarCampos()
          this.listar()
